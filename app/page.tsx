@@ -23,8 +23,11 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setResult(null);
     
     try {
+      console.log('Sending request with patient info:', patientInfo);
+      
       const response = await fetch('/api/classify', {
         method: 'POST',
         headers: {
@@ -33,16 +36,23 @@ export default function Home() {
         body: JSON.stringify({ patientInfo }),
       });
 
+      const data = await response.json();
+      console.log('Received response:', data);
+
       if (!response.ok) {
-        throw new Error('Classification failed');
+        throw new Error(data.error || 'Classification failed');
       }
 
-      const data = await response.json();
-      setResult(data.classification);
+      if (data.classification) {
+        setResult(data.classification);
+      } else {
+        throw new Error('No classification received');
+      }
     } catch (error) {
+      console.error('Error details:', error);
       toast({
         title: 'Error',
-        description: 'Failed to classify patient information',
+        description: error.message || 'Failed to classify patient information',
         status: 'error',
         duration: 5000,
         isClosable: true,
