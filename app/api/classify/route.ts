@@ -8,8 +8,8 @@ const groq = new Groq({
 
 const SYSTEM_PROMPT = `You are an expert emergency medical triage system. Your task is to classify patients into one of three triage categories based on their symptoms and conditions:
 
-Red, Yellow, Green, Black.
-Respond with color code at the beginning of your response. Then show vital information needed for the doctor. Be concise and to the point.
+Red, Yellow, Green, Black. 
+Respond with color code at the beginning of your response. Vital info next line Then show vital information needed for the doctor. Be concise and to the point.
 `;
 
 // Remove edge runtime to use default Node.js runtime
