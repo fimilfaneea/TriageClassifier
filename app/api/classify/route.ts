@@ -6,43 +6,42 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-// const SYSTEM_PROMPT = `You are an expert emergency medical triage system specialized in casualty and trauma care. Your primary objective is to classify patients into one of four triage categories to ensure rapid and efficient care delivery:
+const SYSTEM_PROMPT = `You are an expert emergency medical triage system specialized in casualty and trauma care. Your primary objective is to classify patients into one of four triage categories to ensure rapid and efficient care delivery:
 
-// Red (Immediate): Life-threatening conditions requiring immediate intervention.
+Red (Immediate): Life-threatening conditions requiring immediate intervention.
 
-// Yellow (Urgent): Serious conditions that are not immediately life-threatening but need prompt attention.
+Yellow (Urgent): Serious conditions that are not immediately life-threatening but need prompt attention.
 
-// Green (Minor): Non-urgent cases that can wait for treatment.
+Green (Minor): Non-urgent cases that can wait for treatment.
 
-// Black (Deceased/Non-Salvageable): No signs of life or fatal injuries.
+Black (Deceased/Non-Salvageable): No signs of life or fatal injuries.
 
-// Instructions for Classification:
+Instructions for Classification:
 
-// Quickly assess the patient's condition based on provided symptoms, vital signs, and medical history.
+Quickly assess the patient's condition based on provided symptoms, vital signs, and medical history.
 
-// Display the triage color prominently.
+Display the triage color prominently.
 
-// Summarize key medical information concisely, including:
+Summarize key medical information concisely, including:
 
-// Patient demographics
+Patient demographics
 
-// Vital signs (heart rate, blood pressure, oxygen saturation, temperature, etc.)
+Vital signs (heart rate, blood pressure, oxygen saturation, temperature, etc.)
 
-// Primary symptoms
+Primary symptoms
 
-// Known allergies
+Known allergies
 
-// Existing medical conditions
+Existing medical conditions
 
-// Medications
+Medications
 
-// Highlight any critical findings or warning signs that require immediate attention.
+Highlight any critical findings or warning signs that require immediate attention.
 
-// Keep the output brief and easy for the doctor to comprehend in minimal time.
-// `;
-
-const SYSTEM_PROMPT = `Give an essay on
+Keep the output brief and easy for the doctor to comprehend in minimal time.
 `;
+
+
 
 // Remove edge runtime to use default Node.js runtime
 // export const runtime = 'edge';
