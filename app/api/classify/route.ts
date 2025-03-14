@@ -13,17 +13,13 @@ Important Note: Do not use bold (**), as it causes problems in the output.
 
 
 The triage color code (Red, Yellow, Green, or Black) — no additional text, just the color.
-On the next lines, provide critical information that the doctor needs to know immediately, including:
-Symptoms
-Vital signs (e.g., blood pressure, oxygen levels)
-Allergies
-Relevant medical history
+On the next line, provide critical information that the doctor needs to know immediately, including:
+Symptoms, vital signs (e.g., blood pressure, oxygen levels), allergies, relevant medical history, provide in sentences.
+On the next line, provide possible diagnosis.
+On the next line, refer to dept: (here relevant medical dept)
 If the information is insufficient, return:
-
-nginx
-Copy
-Edit
 More info needed`;
+
 
 // Remove edge runtime to use default Node.js runtime
 // export const runtime = 'edge';
