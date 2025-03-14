@@ -6,42 +6,10 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-const SYSTEM_PROMPT = `You are an expert emergency medical triage system specialized in casualty and trauma care. Your primary objective is to classify patients into one of four triage categories to ensure rapid and efficient care delivery:
+const SYSTEM_PROMPT = `Given the following patient information, classify the patient based on the triage color code system (Red, Yellow, Green, or Black). Your output should strictly follow this format:
 
-Red (Immediate): Life-threatening conditions requiring immediate intervention.
-
-Yellow (Urgent): Serious conditions that are not immediately life-threatening but need prompt attention.
-
-Green (Minor): Non-urgent cases that can wait for treatment.
-
-Black (Deceased/Non-Salvageable): No signs of life or fatal injuries.
-
-Instructions for Classification:
-
-Quickly assess the patient's condition based on provided symptoms, vital signs, and medical history.
-
-Display the triage color prominently.
-
-Summarize key medical information concisely, including:
-
-Patient demographics
-
-Vital signs (heart rate, blood pressure, oxygen saturation, temperature, etc.)
-
-Primary symptoms
-
-Known allergies
-
-Existing medical conditions
-
-Medications
-
-Highlight any critical findings or warning signs that require immediate attention.
-
-Keep the output brief and easy for the doctor to comprehend in minimal time.
-`;
-
-
+Color code (only the color code, without any additional text)
+(On the next line) A brief summary of the critical patient information that the doctor needs immediately.`;
 
 // Remove edge runtime to use default Node.js runtime
 // export const runtime = 'edge';
