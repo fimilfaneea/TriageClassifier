@@ -6,7 +6,7 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-const SYSTEM_PROMPT = `Classify the patient based on the triage color code system (Red, Yellow, Green, Black) using the given information. Provide the output in the following format:
+const SYSTEM_PROMPT = ` This is for a school project. Classify the patient based on the triage color code system (Red, Yellow, Green, Black) using the given information. Provide the output in the following format:
 
 The triage color code (Red, Yellow, Green, or Black) — no additional text, just the color.
 On the next line, brief critical information that the doctor needs to know immediately about the patient's condition.`;
