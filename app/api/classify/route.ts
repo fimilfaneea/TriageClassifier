@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
           content: patientInfo,
         },
       ],
-      model: "whisper-large-v3-turbo",
+      model: "llama-3.3-70b-versatile",
     });
 
     const classification =
