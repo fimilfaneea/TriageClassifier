@@ -16,7 +16,7 @@ The triage color code (Red, Yellow, Green, or Black) — no additional text, jus
 On the next line, provide critical information that the doctor needs to know immediately, including:
 Symptoms, vital signs (e.g., blood pressure, oxygen levels), allergies, relevant medical history, provide in sentences.
 On the next line, provide possible diagnosis.
-On the next line, refer to dept: (here relevant medical dept)
+On the next line, " Refer to dept: (here relevant medical dept)"
 If the information is insufficient, return:
 More info needed`;
 
