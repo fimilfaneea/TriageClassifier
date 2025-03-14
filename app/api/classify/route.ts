@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
           content: patientInfo,
         },
       ],
-      model: "mixtral-8x7b-32768",
+      model: "gemma2-9b-it",
     });
 
     const classification =
