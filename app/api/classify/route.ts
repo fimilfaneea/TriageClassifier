@@ -9,6 +9,8 @@ const groq = new Groq({
 const SYSTEM_PROMPT = `Classify the patient based on the triage color code system (Red, Yellow, Green, or Black) using the given information. If the information is insufficient for classification, respond with "More info needed."
 
 Output Format:
+Important Note: Do not use bold (**), as it causes problems in the output.
+
 
 The triage color code (Red, Yellow, Green, or Black) — no additional text, just the color.
 On the next lines, provide critical information that the doctor needs to know immediately, including:
