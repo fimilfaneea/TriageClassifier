@@ -1,59 +1,58 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+export const runtime = 'edge'; // Add edge runtime support
 
-export async function POST(req: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const { patientInfo } = await req.json();
+    const body = await request.json();
+    const { patientInfo } = body;
 
-    const prompt = `As an emergency medical triage expert, analyze the following patient information and classify them into one of these color codes:
-    RED (Immediate) - Immediate life-threatening conditions requiring immediate medical attention
-    YELLOW (Urgent) - Serious but not immediately life-threatening conditions requiring urgent care
-    GREEN (Minor) - Minor injuries or illnesses that can wait
-    BLACK (Expectant) - Beyond help or deceased
-
-    Provide the classification in this format:
-    COLOR CODE
-    Key Findings:
-    - [list 2-3 key findings that led to this classification]
-    
-    Patient Information:
-    ${patientInfo}
-
-    If critical information is missing, respond with "YELLOW - Insufficient Information" and list what additional information is needed for a more accurate assessment.`;
-
-    const response = await fetch(GROQ_API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
-        messages: [
-          {
-            role: "user",
-            content: prompt,
+    if (!patientInfo) {
+      return new NextResponse(
+        JSON.stringify({ error: 'Patient information is required' }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json',
           },
-        ],
-        temperature: 0.1, // Lower temperature for more consistent responses
-        max_tokens: 200,  // Limit response length
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to get classification');
+        }
+      );
     }
 
-    const data = await response.json();
-    const classification = data.choices[0].message.content.trim();
+    // This is a simple example classification logic
+    let classification = 'GREEN'; // Default classification
+    
+    const lowercaseInfo = patientInfo.toLowerCase();
+    
+    if (lowercaseInfo.includes('chest pain') || 
+        lowercaseInfo.includes('difficulty breathing') ||
+        lowercaseInfo.includes('severe bleeding')) {
+      classification = 'RED';
+    } else if (lowercaseInfo.includes('broken') || 
+               lowercaseInfo.includes('fracture') ||
+               lowercaseInfo.includes('moderate pain')) {
+      classification = 'YELLOW';
+    }
 
-    return NextResponse.json({ classification });
+    return new NextResponse(
+      JSON.stringify({ classification }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
   } catch (error) {
     console.error('Classification error:', error);
-    return NextResponse.json(
-      { error: 'Failed to classify patient information' },
-      { status: 500 }
+    return new NextResponse(
+      JSON.stringify({ error: 'Internal server error' }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     );
   }
 } 
