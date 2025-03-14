@@ -80,9 +80,9 @@ export async function POST(request: NextRequest) {
           content: patientInfo
         }
       ],
-      model: 'mixtral-8x7b-32768',
+      model: 'whisper-large-v3-turbo',
       temperature: 0.1,
-      max_tokens: 10,
+      max_tokens: 100,
     });
 
     const classification = completion.choices[0]?.message?.content?.trim() || 'GREEN';
