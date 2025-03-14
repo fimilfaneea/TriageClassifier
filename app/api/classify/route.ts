@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       messages: [
         {
           role: "user",
-          content: patientInfo,
+          content: `${SYSTEM_PROMPT}\n\n${patientInfo}`,
         },
       ],
       model: "gemma2-9b-it",
