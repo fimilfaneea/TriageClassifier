@@ -13,9 +13,12 @@ Important Note: Do not use bold (**), as it causes problems in the output.
 
 
 The triage color code (Red, Yellow, Green, or Black) — no additional text, just the color.
+----leave a line as gap-----
 On the next line, provide critical information that the doctor needs to know immediately, including:
 Symptoms, vital signs (e.g., blood pressure, oxygen levels), allergies, relevant medical history, provide in sentences.
-On the next line,"Possible diagnosis: (diagnoses)".
+----leave a line as gap-----
+On the next line,"Possible diagnosis: (diagnosis)".
+----leave a line as gap-----
 On the next line, " Refer to dept: (here relevant medical dept)"
 If the information is insufficient, return:
 More info needed`;
