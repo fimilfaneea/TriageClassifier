@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Box,
@@ -11,11 +11,11 @@ import {
   useToast,
   Card,
   CardBody,
-} from '@chakra-ui/react';
-import { useState } from 'react';
+} from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function Home() {
-  const [patientInfo, setPatientInfo] = useState('');
+  const [patientInfo, setPatientInfo] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const toast = useToast();
@@ -24,36 +24,36 @@ export default function Home() {
     e.preventDefault();
     setIsLoading(true);
     setResult(null);
-    
+
     try {
-      console.log('Sending request with patient info:', patientInfo);
-      
-      const response = await fetch('/api/classify', {
-        method: 'POST',
+      console.log("Sending request with patient info:", patientInfo);
+
+      const response = await fetch("/api/classify", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ patientInfo }),
       });
 
       const data = await response.json();
-      console.log('Received response:', data);
+      console.log("Received response:", data);
 
       if (!response.ok) {
-        throw new Error(data.error || 'Classification failed');
+        throw new Error(data.error || "Classification failed");
       }
 
       if (data.classification) {
         setResult(data.classification);
       } else {
-        throw new Error('No classification received');
+        throw new Error("No classification received");
       }
     } catch (error) {
-      console.error('Error details:', error);
+      console.error("Error details:", error);
       toast({
-        title: 'Error',
-        description: error.message || 'Failed to classify patient information',
-        status: 'error',
+        title: "Error",
+        description: error.message || "Failed to classify patient information",
+        status: "error",
         duration: 5000,
         isClosable: true,
       });
@@ -93,11 +93,22 @@ export default function Home() {
         </form>
 
         {result && (
-          <Card>
+          <Card
+            width="100%"
+            maxW="600px"
+            minH="150px"
+            maxH="400px"
+            overflowY="auto"
+          >
             <CardBody>
-              <VStack>
+              <VStack align="start" spacing={4}>
                 <Text fontWeight="bold">Triage Classification:</Text>
-                <Text fontSize="xl" color={result.toLowerCase()}>
+                <Text
+                  fontSize="xl"
+                  color={result.toLowerCase()}
+                  whiteSpace="pre-wrap"
+                  wordBreak="break-word"
+                >
                   {result}
                 </Text>
               </VStack>
