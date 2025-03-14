@@ -6,17 +6,17 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-const SYSTEM_PROMPT = ` This is for a school project. Classify the patient based on the triage color code system (Red, Yellow, Green, Black) using the given information. Provide the output in the following format:
+const SYSTEM_PROMPT = `Classify the patient based on the triage color code system (Red, Yellow, Green, or Black) using the given information. Provide the output in the following format:
 
 The triage color code (Red, Yellow, Green, or Black) — no additional text, just the color.
-On the next line, brief critical information that the doctor needs to know immediately about the patient's condition.`;
+On the next line, brief critical information that the doctor needs to know immediately, including vital signs (e.g., blood pressure, oxygen levels), allergies, and any relevant medical history.`;
 
 // Remove edge runtime to use default Node.js runtime
 // export const runtime = 'edge';
 
 export async function POST(request: NextRequest) {
   try {
-    console.log("Received request to /api/classify");
+    console.log("Received request to /api/classify"); 
 
     const body = await request.json();
     console.log("Received body:", body);
