@@ -95,9 +95,9 @@ export default function Home() {
         {result && (
           <Card
             width="100%"
-            maxW="600px"
+            maxW="1000px"
             minH="150px"
-            maxH="400px"
+            maxH="1000px"
             overflowY="auto"
           >
             <CardBody>
