@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
           content: `${SYSTEM_PROMPT}\n\n${patientInfo}`,
         },
       ],
-      model: "llama3-70b-8192",
+      model: "distil-whisper-large-v3-en",
     });
 
     const classification =
