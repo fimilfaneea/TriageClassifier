@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
           content: `${SYSTEM_PROMPT}\n\n${patientInfo}`,
         },
       ],
-      model: "whisper-large-v3",
+      model: "llama 70b versatile",
     });
 
     const classification =
