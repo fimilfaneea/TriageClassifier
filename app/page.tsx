@@ -19,7 +19,7 @@ export default function Home() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [sex, setSex] = useState("");
-  const [symptoms, setSymptoms] = useState("");
+  const [Occupation, setOccupation] = useState("");
   const [bp, setBp] = useState("");
   const [spo2, setSpo2] = useState("");
   const [pulserate, setPulserate] = useState("");
@@ -43,7 +43,7 @@ export default function Home() {
     setResult(null);
 
     // Concatenate the form data into a single string
-    const patientInfo = `Name: ${name}\nAge: ${age}\nSex: ${sex}\nSymptoms: ${symptoms}\nBP: ${bp}\nSpO2: ${spo2}\nPulse Rate: ${pulserate}\nTemperature: ${temp}\nChief Complaint: ${chiefcomp}\nDiabetes: ${diabetes}\nHypertension: ${hypertension}\nHypothyroid: ${hypothyroid}\nCVA: ${cva}\nCAD: ${cad}\nPast History: ${pasthistory}\nAny Other: ${anyother}`;
+    const patientInfo = `Name: ${name}\nAge: ${age}\nSex: ${sex}\nOccupation: ${Occupation}\nBP: ${bp}\nSpO2: ${spo2}\nPulse Rate: ${pulserate}\nTemperature: ${temp}\nChief Complaint: ${chiefcomp}\nDiabetes: ${diabetes}\nHypertension: ${hypertension}\nHypothyroid: ${hypothyroid}\nCVA: ${cva}\nCAD: ${cad}\nPast History: ${pasthistory}\nAny Other: ${anyother}`;
 
     try {
       console.log("Sending request with patient info:", patientInfo);
@@ -113,9 +113,9 @@ export default function Home() {
               required
             />
             <Textarea
-              value={symptoms}
-              onChange={(e) => setSymptoms(e.target.value)}
-              placeholder="Symptoms"
+              value={Occupation}
+              onChange={(e) => setOccupation(e.target.value)}
+              placeholder="Occupation"
               size="lg"
               rows={4}
               required
