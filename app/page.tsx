@@ -112,7 +112,7 @@ export default function Home() {
               size="lg"
               required
             />
-            <Textarea
+            <Input
               value={Occupation}
               onChange={(e) => setOccupation(e.target.value)}
               placeholder="Occupation"
