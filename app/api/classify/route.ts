@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
           content: `${SYSTEM_PROMPT}\n\n${patientInfo}`,
         },
       ],
-      model: "distil-whisper-large-v3-en",
+      model: "whisper-large-v3",
     });
 
     const classification =
