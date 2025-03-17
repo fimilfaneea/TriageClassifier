@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
           content: `${SYSTEM_PROMPT}\n\n${patientInfo}`,
         },
       ],
-      model: "llama 70b versatile",
+      model: "llama-3.3-70b-versatile",
     });
 
     const classification =
