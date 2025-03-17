@@ -142,7 +142,7 @@ export default function Home() {
               placeholder="Temperature"
               size="lg"
             />
-            <Input
+            <Textarea
               value={chiefcomp}
               onChange={(e) => setChiefcomp(e.target.value)}
               placeholder="Chief Complaint"
