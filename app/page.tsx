@@ -116,8 +116,6 @@ export default function Home() {
               value={Occupation}
               onChange={(e) => setOccupation(e.target.value)}
               placeholder="Occupation"
-              size="lg"
-              rows={4}
               required
             />
             <Input
