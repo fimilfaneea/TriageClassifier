@@ -86,7 +86,6 @@ export default function Home() {
     <Container maxW="container.md" py={10}>
       <Box
         textAlign="center"
-        mt={10}
         
         borderTop="1px solid"
         borderColor="gray.200"
