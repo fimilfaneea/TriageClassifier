@@ -93,20 +93,19 @@ export default function Home() {
       >
         <Text fontSize="sm">
           Created by{" "}
-          <Text as="span" fontWeight="bold">
-            Fimil
-          </Text>{" "}
-          -{" "}
           <Box
             as="a"
-            href="https://www.linkedin.com/in/your-linkedin"
+            href="https://www.linkedin.com/in/fimilfaneea/"
             target="_blank"
             color="blue.500"
+            fontWeight="bold"
+            _hover={{ textDecoration: "underline" }}
           >
-            LinkedIn
+            Fimil
           </Box>
         </Text>
       </Box>
+
       <VStack spacing={6} align="stretch">
         <Heading textAlign="center">Emergency Triage Classification</Heading>
         <Text textAlign="center">Enter patient information below</Text>
