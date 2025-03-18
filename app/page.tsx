@@ -181,7 +181,7 @@ export default function Home() {
             <Input
               value={pasthistory}
               onChange={(e) => setPasthistory(e.target.value)}
-              placeholder="Past Medical History"
+              placeholder="Past Medical/Surigcal History"
               size="lg"
             />
             <Input
