@@ -83,7 +83,7 @@ export default function Home() {
   };
 
   return (
-    <Container maxW="container.md">
+    <Container maxW="container.md"py={10}>
       <VStack spacing={6} align="stretch">
         <Heading textAlign="center">Emergency Triage Classification</Heading>
         <Text textAlign="center">Enter patient information below</Text>
