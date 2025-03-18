@@ -84,6 +84,29 @@ export default function Home() {
 
   return (
     <Container maxW="container.md" py={10}>
+      <Box
+        textAlign="center"
+        mt={10}
+        py={2}
+        borderTop="1px solid"
+        borderColor="gray.200"
+      >
+        <Text fontSize="sm">
+          Created by{" "}
+          <Text as="span" fontWeight="bold">
+            Fimil
+          </Text>{" "}
+          -{" "}
+          <Box
+            as="a"
+            href="https://www.linkedin.com/in/your-linkedin"
+            target="_blank"
+            color="blue.500"
+          >
+            LinkedIn
+          </Box>
+        </Text>
+      </Box>
       <VStack spacing={6} align="stretch">
         <Heading textAlign="center">Emergency Triage Classification</Heading>
         <Text textAlign="center">Enter patient information below</Text>
@@ -226,29 +249,6 @@ export default function Home() {
           </Card>
         )}
       </VStack>
-      <Box
-        textAlign="center"
-        mt={10}
-        py={2}
-        borderTop="1px solid"
-        borderColor="gray.200"
-      >
-        <Text fontSize="sm">
-          Created by{" "}
-          <Text as="span" fontWeight="bold">
-            Fimil
-          </Text>{" "}
-          -{" "}
-          <Box
-            as="a"
-            href="https://www.linkedin.com/in/your-linkedin"
-            target="_blank"
-            color="blue.500"
-          >
-            LinkedIn
-          </Box>
-        </Text>
-      </Box>
     </Container>
   );
 }
