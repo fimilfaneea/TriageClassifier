@@ -84,7 +84,7 @@ export default function Home() {
 
   return (
     <Container maxW="container.md">
-      <Box textAlign="center" borderTop="1px solid" borderBottom="1px solid" borderColor="gray.200" >
+      <Box textAlign="right" borderTop="1px solid" borderBottom="1px solid" borderColor="gray.200" >
         <Text fontSize="sm" mb={3}>
           Created by{" "}
           <Box
