@@ -84,7 +84,7 @@ export default function Home() {
 
   return (
     <Container maxW="container.md">
-      <Box textAlign="right" borderTop="1px solid" borderBottom="1px solid" borderColor="gray.200" >
+      <Box textAlign="right" borderTop="1px solid" >
         <Text fontSize="sm" mb={3}>
           Created by{" "}
           <Box
@@ -100,7 +100,7 @@ export default function Home() {
         </Text>
       </Box>
 
-      <VStack spacing={6} align="stretch" mt={3}>
+      <VStack spacing={6} align="stretch" >
         <Heading textAlign="center">Emergency Triage Classification</Heading>
         <Text textAlign="center">Enter patient information below</Text>
 
