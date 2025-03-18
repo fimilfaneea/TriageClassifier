@@ -83,13 +83,8 @@ export default function Home() {
   };
 
   return (
-    <Container maxW="container.md" py={10}>
-      <Box
-        textAlign="center"
-        
-        borderTop="1px solid"
-        borderColor="gray.200"
-      >
+    <Container maxW="container.md">
+      <Box textAlign="center" borderTop="1px solid" borderColor="gray.200">
         <Text fontSize="sm">
           Created by{" "}
           <Box
