@@ -100,7 +100,7 @@ export default function Home() {
         </Text>
       </Box>
 
-      <VStack spacing={6} align="stretch">
+      <VStack spacing={6} align="stretch" mt={3}>
         <Heading textAlign="center">Emergency Triage Classification</Heading>
         <Text textAlign="center">Enter patient information below</Text>
 
