@@ -16,10 +16,12 @@ import {
 import { useState } from "react";
 
 export default function Home() {
+  const [OP_IP, setOP_IP] = useState("");
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [sex, setSex] = useState("");
   const [Occupation, setOccupation] = useState("");
+  const [Place, setPlace] = useState("");
   const [bp, setBp] = useState("");
   const [spo2, setSpo2] = useState("");
   const [pulserate, setPulserate] = useState("");
@@ -43,7 +45,7 @@ export default function Home() {
     setResult(null);
 
     // Concatenate the form data into a single string
-    const patientInfo = `Name: ${name}\nAge: ${age}\nSex: ${sex}\nOccupation: ${Occupation}\nBP: ${bp}\nSpO2: ${spo2}\nPulse Rate: ${pulserate}\nTemperature: ${temp}\nChief Complaint: ${chiefcomp}\nDiabetes: ${diabetes}\nHypertension: ${hypertension}\nHypothyroid: ${hypothyroid}\nCVA: ${cva}\nCAD: ${cad}\nPast History: ${pasthistory}\nAny Other: ${anyother}`;
+    const patientInfo = `OP/IP: ${OP_IP}\nName: ${name}\nAge: ${age}\nSex: ${sex}\nOccupation: ${Occupation}\nPlace: ${Place}\nBP: ${bp}\nSpO2: ${spo2}\nPulse Rate: ${pulserate}\nTemperature: ${temp}\nChief Complaint: ${chiefcomp}\nDiabetes: ${diabetes}\nHypertension: ${hypertension}\nHypothyroid: ${hypothyroid}\nCVA: ${cva}\nCAD: ${cad}\nPast History: ${pasthistory}\nAny Other: ${anyother}`;
 
     try {
       console.log("Sending request with patient info:", patientInfo);
@@ -83,149 +85,164 @@ export default function Home() {
   };
 
   return (
-    <Container maxW="container.md"py={10}>
-      <VStack spacing={6} align="stretch">
-        <Heading textAlign="center">Emergency Triage Classification</Heading>
-        <Text textAlign="center">Enter patient information below</Text>
+    <Box width="100vw" height="100vh" overflowY="auto">
+      <Container maxW="container.md" py={10}>
+        <VStack spacing={6} align="stretch">
+          <Heading textAlign="center">Emergency Triage Classification</Heading>
+          <Text textAlign="center">Enter patient information below</Text>
 
-        <form onSubmit={handleSubmit}>
-          <VStack spacing={4}>
-            <Input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Patient Name"
-              size="lg"
-              required
-            />
-            <Input
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-              placeholder="Age"
-              size="lg"
-              type="number"
-              required
-            />
-            <Input
-              value={sex}
-              onChange={(e) => setSex(e.target.value)}
-              placeholder="Sex"
-              size="lg"
-              required
-            />
-            <Input
-              value={Occupation}
-              onChange={(e) => setOccupation(e.target.value)}
-              placeholder="Occupation"
-              required
-            />
-            <Input
-              value={bp}
-              onChange={(e) => setBp(e.target.value)}
-              placeholder="Blood Pressure"
-              size="lg"
-            />
-            <Input
-              value={spo2}
-              onChange={(e) => setSpo2(e.target.value)}
-              placeholder="SpO2"
-              size="lg"
-            />
-            <Input
-              value={pulserate}
-              onChange={(e) => setPulserate(e.target.value)}
-              placeholder="Pulse Rate"
-              size="lg"
-            />
-            <Input
-              value={temp}
-              onChange={(e) => setTemp(e.target.value)}
-              placeholder="Temperature"
-              size="lg"
-            />
-            <Textarea
-              value={chiefcomp}
-              onChange={(e) => setChiefcomp(e.target.value)}
-              placeholder="Chief Complaint"
-              size="lg"
-            />
-            <Input
-              value={diabetes}
-              onChange={(e) => setDiabetes(e.target.value)}
-              placeholder="Diabetes (Yes/No)"
-              size="lg"
-            />
-            <Input
-              value={hypertension}
-              onChange={(e) => setHypertension(e.target.value)}
-              placeholder="Hypertension (Yes/No)"
-              size="lg"
-            />
-            <Input
-              value={hypothyroid}
-              onChange={(e) => setHypothyroid(e.target.value)}
-              placeholder="Hypothyroid (Yes/No)"
-              size="lg"
-            />
-            <Input
-              value={cva}
-              onChange={(e) => setCva(e.target.value)}
-              placeholder="CVA (Yes/No)"
-              size="lg"
-            />
-            <Input
-              value={cad}
-              onChange={(e) => setCad(e.target.value)}
-              placeholder="CAD (Yes/No)"
-              size="lg"
-            />
-            <Input
-              value={pasthistory}
-              onChange={(e) => setPasthistory(e.target.value)}
-              placeholder="Past Medical/Surigcal History"
-              size="lg"
-            />
-            <Input
-              value={anyother}
-              onChange={(e) => setAnyother(e.target.value)}
-              placeholder="Any Other Information"
-              size="lg"
-            />
-            <Button
-              type="submit"
-              colorScheme="blue"
-              isLoading={isLoading}
-              loadingText="Classifying..."
-              width="full"
+          <form onSubmit={handleSubmit}>
+            <VStack spacing={4}>
+              <Input
+                value={OP_IP}
+                onChange={(e) => setOP_IP(e.target.value)}
+                placeholder="OP/IP Number"
+                size="lg"
+                required
+              />
+              <Input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Patient Name"
+                size="lg"
+                required
+              />
+              <Input
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                placeholder="Age"
+                size="lg"
+                type="number"
+                required
+              />
+              <Input
+                value={sex}
+                onChange={(e) => setSex(e.target.value)}
+                placeholder="Sex"
+                size="lg"
+                required
+              />
+              <Input
+                value={Occupation}
+                onChange={(e) => setOccupation(e.target.value)}
+                placeholder="Occupation"
+                required
+              />
+              <Input
+                value={Place}
+                onChange={(e) => setPlace(e.target.value)}
+                placeholder="Place"
+                required
+              />
+              <Input
+                value={bp}
+                onChange={(e) => setBp(e.target.value)}
+                placeholder="Blood Pressure"
+                size="lg"
+              />
+              <Input
+                value={spo2}
+                onChange={(e) => setSpo2(e.target.value)}
+                placeholder="SpO2"
+                size="lg"
+              />
+              <Input
+                value={pulserate}
+                onChange={(e) => setPulserate(e.target.value)}
+                placeholder="Pulse Rate"
+                size="lg"
+              />
+              <Input
+                value={temp}
+                onChange={(e) => setTemp(e.target.value)}
+                placeholder="Temperature in Fahrenheit"
+                size="lg"
+              />
+              <Textarea
+                value={chiefcomp}
+                onChange={(e) => setChiefcomp(e.target.value)}
+                placeholder="Chief Complaint"
+                size="lg"
+              />
+              <Input
+                value={diabetes}
+                onChange={(e) => setDiabetes(e.target.value)}
+                placeholder="Diabetes (Yes/No)"
+                size="lg"
+              />
+              <Input
+                value={hypertension}
+                onChange={(e) => setHypertension(e.target.value)}
+                placeholder="Hypertension (Yes/No)"
+                size="lg"
+              />
+              <Input
+                value={hypothyroid}
+                onChange={(e) => setHypothyroid(e.target.value)}
+                placeholder="Hypothyroid (Yes/No)"
+                size="lg"
+              />
+              <Input
+                value={cva}
+                onChange={(e) => setCva(e.target.value)}
+                placeholder="CVA (Yes/No)"
+                size="lg"
+              />
+              <Input
+                value={cad}
+                onChange={(e) => setCad(e.target.value)}
+                placeholder="CAD (Yes/No)"
+                size="lg"
+              />
+              <Input
+                value={pasthistory}
+                onChange={(e) => setPasthistory(e.target.value)}
+                placeholder="Past Medical/Surgical History"
+                size="lg"
+              />
+              <Input
+                value={anyother}
+                onChange={(e) => setAnyother(e.target.value)}
+                placeholder="Any Other Information"
+                size="lg"
+              />
+              <Button
+                type="submit"
+                colorScheme="blue"
+                isLoading={isLoading}
+                loadingText="Classifying..."
+                width="full"
+              >
+                Classify
+              </Button>
+            </VStack>
+          </form>
+
+          {result && (
+            <Card
+              width="100%"
+              maxW="1000px"
+              minH="150px"
+              maxH="400px"
+              overflowY="auto"
             >
-              Classify
-            </Button>
-          </VStack>
-        </form>
-
-        {result && (
-          <Card
-            width="100%"
-            maxW="1000px"
-            minH="150px"
-            maxH="1000px"
-            overflowY="auto"
-          >
-            <CardBody>
-              <VStack align="start" spacing={4}>
-                <Text fontWeight="bold">Triage Classification:</Text>
-                <Text
-                  fontSize="xl"
-                  color={result.toLowerCase()}
-                  whiteSpace="pre-wrap"
-                  wordBreak="break-word"
-                >
-                  {result}
-                </Text>
-              </VStack>
-            </CardBody>
-          </Card>
-        )}
-      </VStack>
-    </Container>
+              <CardBody>
+                <VStack align="start" spacing={4}>
+                  <Text fontWeight="bold">Triage Classification:</Text>
+                  <Text
+                    fontSize="xl"
+                    color={result.toLowerCase()}
+                    whiteSpace="pre-wrap"
+                    wordBreak="break-word"
+                  >
+                    {result}
+                  </Text>
+                </VStack>
+              </CardBody>
+            </Card>
+          )}
+        </VStack>
+      </Container>
+    </Box>
   );
 }
