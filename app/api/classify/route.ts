@@ -12,16 +12,9 @@ Output Format:
 
 Color code (Red, Yellow, Green, Black) — no extra text.
 
-(Leave a line)
-
-Patient details:
-OP No X, Mr./Ms. [Name], a [Occupation] from [Location], has a history of [Relevant medical history]. Currently experiencing [Symptoms], BP [mmHg], SpO2 [ %], Temp [°F], HR [bpm]. Additional conditions: [Diabetes/Hypertension/etc.], lifestyle factors (if any).
-
-(Leave a line)
+Patient details: OP No X, Mr./Ms. [Name], a [Occupation] from [Location], has a history of [Relevant medical history]. Currently experiencing [Symptoms], BP [mmHg], SpO2 [%], Temp [°F], HR [bpm]. Additional conditions: [Diabetes/Hypertension/etc.]. Lifestyle factors: [if any].
 
 Possible diagnosis: (Diagnosis)
-
-(Leave a line)
 
 Refer to dept: (Relevant medical department)`;
 
