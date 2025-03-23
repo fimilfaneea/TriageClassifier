@@ -6,23 +6,23 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-const SYSTEM_PROMPT = `Classify the patient based on the triage color code system (Red, Yellow, Green, or Black) using the given information. If the information is insufficient for classification, respond with "More info needed."
+const SYSTEM_PROMPT = `Classify the patient using the triage color code system (Red, Yellow, Green, Black). If data is insufficient, return: More info needed.
 
 Output Format:
-Important Note: Do not use bold (**), as it causes problems in the output.
 
+Color code (Red, Yellow, Green, Black) — no extra text.
 
-The triage color code (Red, Yellow, Green, or Black) — no additional text, just the color.
-----leave a line as gap-----
-On the next line, provide critical information that the doctor needs to know immediately, including:
-Symptoms, vital signs (e.g., blood pressure, oxygen levels), allergies, relevant medical history, provide in sentences.
-----leave a line as gap-----
-On the next line,"Possible diagnosis: (diagnosis)".
-----leave a line as gap-----
-On the next line, " Refer to dept: (here relevant medical dept)"
-If the information is insufficient, return:
-More info needed`;
+(Leave a line)
 
+Critical patient info: Name, occupation, location, OP No, history, symptoms, vitals (BP mmHg, SpO2%, Temp °F, HR bpm), allergies, relevant medical history.
+
+(Leave a line)
+
+Possible diagnosis: (Diagnosis)
+
+(Leave a line)
+
+Refer to dept: (Relevant medical department)`;
 
 // Remove edge runtime to use default Node.js runtime
 // export const runtime = 'edge';
