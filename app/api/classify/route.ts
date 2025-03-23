@@ -10,7 +10,7 @@ const SYSTEM_PROMPT = `Classify the patient using the triage color code system (
 
 Output Format:
 
-Color code (Red, Yellow, Green, Black) — no extra text.
+Color code (Red, Yellow, Green, Black).
 
 Patient details: OP No X, Mr./Ms. [Name], a [Occupation] from [Location], has a history of [Relevant medical history]. Currently experiencing [Symptoms], BP [mmHg], SpO2 [%], Temp [°F], HR [bpm]. Additional conditions: [Diabetes/Hypertension/etc.]. Lifestyle factors: [if any].
 
