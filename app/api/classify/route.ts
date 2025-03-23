@@ -14,7 +14,8 @@ Color code (Red, Yellow, Green, Black) — no extra text.
 
 (Leave a line)
 
-Critical patient info: Name, occupation, location, OP No, history, symptoms, vitals (BP mmHg, SpO2%, Temp °F, HR bpm), allergies, relevant medical history.
+Patient details:
+OP No X, Mr./Ms. [Name], a [Occupation] from [Location], has a history of [Relevant medical history]. Currently experiencing [Symptoms], BP [mmHg], SpO2 [ %], Temp [°F], HR [bpm]. Additional conditions: [Diabetes/Hypertension/etc.], lifestyle factors (if any).
 
 (Leave a line)
 
